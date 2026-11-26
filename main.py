@@ -1,12 +1,17 @@
-"""make.fun entry: Unexpected Item - Your Personality"""
-import os
+#!/usr/bin/env python3
+"""MakeFun entry: Unexpected Item: Your Personality"""
 
-OUTPUT_DIR = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
 ENTRY_LINE = "Unexpected item in bagging area. The item is your entire personality, and I have weighed it. Remove it and pay. Twelve yoghurts? Bold."
 
+
 def main():
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
-    with open(os.path.join(OUTPUT_DIR, "entry.txt"), "w") as f:
+    import os
+
+    output_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
+    os.makedirs(output_dir, exist_ok=True)
+
+    entry_path = os.path.join(output_dir, "entry.txt")
+    with open(entry_path, "w") as f:
         f.write(ENTRY_LINE)
 
 
